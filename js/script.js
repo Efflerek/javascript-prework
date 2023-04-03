@@ -52,27 +52,26 @@ function getMoveName(argMoveId) {
     }
 }
   
-  function displayResult(argPlayerMove, argComputerMove) {
-    if(argPlayerMove == 'papier' && argComputerMove == 'kamień'){
+  function displayResult(PlayerMove, ComputerMove) {
+    if(PlayerMove == 'papier' && ComputerMove == 'kamień'){
       printMessage('Wygrywasz!');
-    } else if (argPlayerMove == 'kamień' && argComputerMove == 'nożyce'){
+    } else if (PlayerMove == 'kamień' && ComputerMove == 'nożyce'){
       printMessage('Wygrywasz!');
-    } else if (argPlayerMove == 'nożyce' && argComputerMove == 'papier'){
+    } else if (PlayerMove == 'nożyce' && ComputerMove == 'papier'){
       printMessage('Wygrywasz!');
-    } else if (argPlayerMove == argComputerMove){
+    } else if (PlayerMove == ComputerMove){
       printMessage('Remis!');    
     } else {
       printMessage('Przegrywasz! :(');
     }
   
-    printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
+    printMessage('Zagrałem ' + ComputerMove + ', a Ty ' + PlayerMove);
   }
-playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-console.log('wybór ruchu gracza to: ' + playerInput);
+  
 playerMove = getMoveName(playerInput);
-console.log('ruch gracza to: ' + playerMove);
+console.log('Ruch gracza to: ' + playerMove);
 randomNumber = Math.floor(Math.random() * 3 + 1);
-console.log('wylosowana liczba to: ' + randomNumber);
+console.log('Wylosowana liczba to: ' + randomNumber);
 computerMove = getMoveName(randomNumber);
-console.log('ruch komputera to: ' + computerMove);
+console.log('Ruch komputera to: ' + computerMove);
 displayResult(playerMove, computerMove);
