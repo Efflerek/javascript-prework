@@ -1,21 +1,22 @@
-
-
 /**
  * Buttons
  */
-var argButtonName, buttonTest; buttonRock; buttonPaper; buttonScissors;
+
+var buttonTest; buttonRock; buttonPaper; buttonScissors;
+// tu będą wymienione pozostałe zmienne guzików, np. buttonRock
+
 buttonTest = document.getElementById('button-test');
 buttonRock = document.getElementById('button-rock');
 buttonPaper = document.getElementById('button-paper');
 buttonScissors = document.getElementById('button-scissors');
+// tu będą kolejne linie kodu, w których do zmiennych będą przypisane elementy znalezione po id
 
-function buttonClicked(argButtonName) {
-  clearMessages();
-  console.log(argButtonName + ' został kliknięty');
-}
+function buttonClicked(argButtonName){
+    clearMessages();
+    console.log(argButtonName + ' został kliknięty");
 
- // Lottery - variable randomNumber
- var computerMove, randomNumber;
+// Lottery - variable randomNumber
+var computerMove, randomNumber;
 randomNumber = Math.floor(Math.random() * 3 + 1);
 console.log('Wylosowana Liczba to: ' + randomNumber);
 printMessage('Wylosowana liczba to: ' + randomNumber);
@@ -23,26 +24,26 @@ if (randomNumber == '1') {
   computerMove = 'kamień';
 } 
 else if (randomNumber =='2') {
-  computerMove='papier';
+  computerMove = "papier";
 }
-else if (randomNumber=='3') {
-    computerMove='nożyce';
+else if (randomNumber =='3') {
+    computerMove = "nożyce";
 }
 else {
   computerMove = 'nieznany ruch';
 }
 printMessage('Ruch komputera: ' + computerMove);
 
-var playerMove;
-playerMove=argButtonName;
-console.log('Wybrany ruch to: ' + argButtonName);
-if (argButtonName == 'kamień') {
+var playerMove, playerInput;
+playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+console.log('Wpisana odpowiedź to: ' + playerInput);
+if (playerInput == '1') {
   playerMove = 'kamień';
 }
-else if (argButtonName == 'papier') {
+else if (playerInput == '2') {
     playerMove = 'papier';
 }
-else if (argButtonName == 'nożyce') {
+else if (playerInput == '3') {
     playerMove =  'nożyce';
 } else {
   playerMove = 'nieznany ruch';
@@ -55,11 +56,11 @@ var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomN
  */
 
 function getMoveName(argMoveId) {
-    if(argMoveId == kamień){
+    if(argMoveId == 1){
         return 'kamień';
-    } else if (argMoveId == papier){
+    } else if (argMoveId == 2){
         return 'papier';
-    } else if (argMoveId == nożyce){
+    } else if (argMoveId == 3){
         return 'nożyce';
     } else {
       printMessage('Nie znam ruchu o id ' + argMoveId + '. Zakładam, że chodziło o "kamień".');
@@ -83,7 +84,7 @@ function getMoveName(argMoveId) {
     printMessage('Zagrałem ' + ComputerMove + ', a Ty ' + PlayerMove);
   }
 
-playerMove = argButtonName;
+playerMove = getMoveName(playerInput);
 console.log('Ruch gracza to: ' + playerMove);
 randomNumber = Math.floor(Math.random() * 3 + 1);
 console.log('Wylosowana liczba to: ' + randomNumber);
@@ -91,7 +92,23 @@ computerMove = getMoveName(randomNumber);
 console.log('Ruch komputera to: ' + computerMove);
 displayResult(playerMove, computerMove);
 
-buttonTest.addEventListener('click', function(){ buttonClicked('test'); });
-buttonRock.addEventListener('click', function(){ buttonClicked('kamień'); });
-buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
-buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });
+    // tu znajdzie się cała dotychczasowa zawartość pliku js/script.js
+    // czyli efekt ćwiczenia z poprzedniego submodułu
+    // z drobną zmianą dot. zmiennej playerMove (wspomnieliśmy o tym powyżej)
+}
+
+buttonTest.addEventListener('click', function(){
+   buttonClicked('Test button')
+});
+buttonRock.addEventListener('click', function(){ 
+   buttonClicked('kamień')
+});
+buttonPaper.addEventListener('click', function(){
+   buttonClicked('papier')
+});
+buttonScissors.addEventListener('click', function(){ 
+   buttonClicked('nożyce')
+});
+
+// tu będą kolejne powiązania guzików z funkcją buttonClicked
+// (każda z innym argumentem)
