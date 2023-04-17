@@ -2,32 +2,29 @@
  * Buttons
  */
 
-var buttonTest, buttonRock, buttonPaper, buttonScissors;
 // declare and initialize button variables
 
-buttonTest = document.getElementById('button-test');
-buttonRock = document.getElementById('button-rock');
-buttonPaper = document.getElementById('button-paper');
-buttonScissors = document.getElementById('button-scissors');
+const buttonTest = document.getElementById('button-test');
+const buttonRock = document.getElementById('button-rock');
+const buttonPaper = document.getElementById('button-paper');
+const buttonScissors = document.getElementById('button-scissors');
 // assign elements found by ID to the button variables
 
 function buttonClicked(argButtonName) {
   clearMessages();
   console.log(argButtonName + ' został kliknięty ');
 
-var computerMove, playerMove, randomNumber;
-  // declare variables for the game
 
-  randomNumber = Math.floor(Math.random() * 3 + 1);
+  const randomNumber = Math.floor(Math.random() * 3 + 1);
   console.log('Wylosowana Liczba to: ' + randomNumber);
   printMessage('Wylosowana liczba to: ' + randomNumber);
   // generate a random number and display it
 
-  computerMove = getMoveName(randomNumber);
+  const computerMove = getMoveName(randomNumber);
   printMessage('Ruch komputera: ' + computerMove);
   // get the computer's move and display it
 
-  playerMove = argButtonName;
+  const playerMove = argButtonName;
   printMessage('Ruch Gracza: ' + playerMove);
   // get the player's move and display it
 
